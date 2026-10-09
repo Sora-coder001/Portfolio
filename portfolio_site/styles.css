@@ -58,6 +58,25 @@ header.hero {
   padding: 72px 0 48px;
   border-bottom: 1px solid var(--border);
 }
+.hero-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+}
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 560px) {
+  .hero-grid { flex-direction: column-reverse; align-items: center; text-align: center; }
+  .hero-grid .contact { justify-content: center; }
+  .hero-grid .skills-row { justify-content: center; }
+}
 header.hero h1 {
   font-size: clamp(32px, 5vw, 44px);
   margin: 0 0 4px;

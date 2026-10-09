@@ -22,12 +22,15 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div>
     <h1 id="name">Loading…</h1>
     <div class="role" id="role"></div>
     <div class="contact" id="contact"></div>
     <p class="summary" id="summary"></p>
     <div class="skills-row" id="skills"></div>
+    </div>
+    <img id="photo" class="photo" src="" alt="" style="display:none;">
   </div>
 </header>
 
@@ -83,6 +86,13 @@ fetch('content.json?v=' + Date.now())
     document.title = data.profile.name + ' — Portfolio';
     document.getElementById('role').textContent = data.profile.title;
     document.getElementById('summary').textContent = data.profile.summary;
+
+    if (data.profile.photo) {
+      const photoEl = document.getElementById('photo');
+      photoEl.src = data.profile.photo;
+      photoEl.alt = data.profile.name;
+      photoEl.style.display = '';
+    }
 
     const contactEl = document.getElementById('contact');
     const contactParts = [];
