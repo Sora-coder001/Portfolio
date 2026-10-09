@@ -1,0 +1,88 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "admin/uploads"
+public_folder: "/admin/uploads"
+
+collections:
+  - name: "site"
+    label: "Portfolio Content"
+    files:
+      - name: "content"
+        label: "Site Content"
+        file: "content.json"
+        fields:
+          - label: "Profile"
+            name: "profile"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+              - { label: "Summary", name: "summary", widget: "text" }
+              - label: "Core Skills"
+                name: "coreSkills"
+                widget: "list"
+                field: { label: "Skill", name: "skill", widget: "string" }
+
+          - label: "Education"
+            name: "education"
+            widget: "list"
+            fields:
+              - { label: "School", name: "school", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Degree", name: "degree", widget: "string" }
+              - { label: "Dates", name: "dates", widget: "string" }
+              - { label: "Details", name: "details", widget: "string", required: false }
+
+          - label: "Experience"
+            name: "experience"
+            widget: "list"
+            fields:
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Dates", name: "dates", widget: "string" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", name: "bullet", widget: "string" }
+
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Dates", name: "dates", widget: "string" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", name: "bullet", widget: "string" }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+          - label: "Leadership"
+            name: "leadership"
+            widget: "list"
+            fields:
+              - { label: "Organization", name: "org", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Dates", name: "dates", widget: "string" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", name: "bullet", widget: "string" }
+
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Dates", name: "dates", widget: "string" }
