@@ -17,6 +17,7 @@ collections:
             name: "profile"
             widget: "object"
             fields:
+              - { label: "Photo", name: "photo", widget: "image", required: false }
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Location", name: "location", widget: "string" }
