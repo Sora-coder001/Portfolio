@@ -1,0 +1,91 @@
+{
+  "profile": {
+    "name": "Sourabh Salunke",
+    "title": "Business Analyst",
+    "location": "West Lafayette, IN",
+    "email": "Ssalunk@purdue.edu",
+    "phone": "765-532-6692",
+    "linkedin": "https://linkedin.com/in/sourabh-salunke-370214203",
+    "summary": "Business Analyst with 3 years of experience analyzing performance trends and translating complex data into insights that inform senior leaders and drive measurable results at JCB India. Built automated Power BI dashboards and led root-cause analyses across 20+ supplier teams, turning raw data into recommendations that cross-functional stakeholders act on. Currently expanding technical capabilities in analytics and forecasting through a graduate degree program.",
+    "coreSkills": ["Power BI", "Excel", "SQL", "Python (Pandas, NumPy, Matplotlib, Seaborn, TensorFlow)"]
+  },
+  "education": [
+    {
+      "school": "Purdue University, Daniels School of Business",
+      "location": "West Lafayette, IN",
+      "degree": "Master of Science in Business Analytics and Information Management",
+      "dates": "Expected July 2027",
+      "details": "Relevant Coursework: Data Mining, Business Analysis, Management of Organizational Data"
+    },
+    {
+      "school": "COEP Technological University, College of Engineering",
+      "location": "Pune, India",
+      "degree": "Bachelor of Technology in Mechanical Engineering",
+      "dates": "July 2023",
+      "details": ""
+    }
+  ],
+  "experience": [
+    {
+      "company": "JCB India",
+      "location": "Pune, Maharashtra, India",
+      "role": "Business Analyst - Supplier Quality & Analytics",
+      "dates": "July 2023 -- July 2026",
+      "bullets": [
+        "Gathered requirements from internal stakeholders and led cross-functional root-cause analysis with 20+ supplier teams on part defects, driving process improvements at supplier plants.",
+        "Analyzed field failure data and performance metrics in 20+ supplier accounts using SQL and Power BI to isolate key drivers, recommending targeted improvements that reduced commodity issues PPM by 79% (2024-2025).",
+        "Built a Power BI dashboard monitoring leakages, turning raw quality data into data-driven recommendations for stakeholder presentations and cutting leakages by 48% (75% at four key suppliers).",
+        "Developed automated dashboards to track A-class component replacements, proposing process fixes to stakeholders that cut replacements 40%+ (2024-mid-2026).",
+        "Ran biweekly fluid contamination tracking via Power BI, consolidating supplier and incoming quality reports to pinpoint root causes and recommend supplier-end process improvements, eliminating concerns at 2 worst-performing plants."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Industry Practicum — Business Analyst (Team Project)",
+      "dates": "August 2026 - ongoing",
+      "bullets": [
+        "Partnering with a small business client to forecast inventory demand using historical sales data, informing stock-level decisions.",
+        "Building an order-monitoring website to track custom orders in real time for the business owner."
+      ],
+      "tags": ["Forecasting", "Team Project"]
+    },
+    {
+      "title": "Ad Click-Through Rate Prediction — Kaggle-Style Competition (QM 67000)",
+      "dates": "September 2026",
+      "bullets": [
+        "Built a binary classification model predicting ad-click probability on 60K+ impressions with missing data, mixed-scale features, and class imbalance (3% positive rate), evaluated via ROC-AUC.",
+        "Engineered features and trained an ensemble of LightGBM, XGBoost, and regularized logistic regression, validated with stratified 5-fold cross-validation to achieve 0.798 ROC-AUC."
+      ],
+      "tags": ["LightGBM", "XGBoost", "Logistic Regression", "scikit-learn"]
+    },
+    {
+      "title": "Stock Market - Data Visualization & Price Forecasting",
+      "dates": "August 2022",
+      "bullets": [
+        "Analyzed historical stock data for four companies through NumPy and Pandas to identify pricing trends.",
+        "Computed 9-, 14-, and 44-day moving averages and average daily returns to assess price trends and volatility.",
+        "Visualized price, volume, and cross-stock correlation using Matplotlib and Seaborn.",
+        "Built an LSTM model using TensorFlow to forecast future stock prices."
+      ],
+      "tags": ["TensorFlow", "LSTM", "NumPy", "Pandas"]
+    }
+  ],
+  "leadership": [
+    {
+      "org": "COEP's Satellite Initiative (CSAT)",
+      "location": "Pune, India",
+      "role": "Structure Subsystem Engineer -- Part-time",
+      "dates": "February 2020 -- December 2021",
+      "bullets": [
+        "Supported satellite structural design by developing a deployable aluminum solar sail mechanism for space traversal.",
+        "Tested and refined the sail's deployment mechanism, improving performance through iterative design cycles.",
+        "Contributed to the design of an H-shaped Yagi-Uda antenna holding system."
+      ]
+    }
+  ],
+  "certifications": [
+    { "name": "Learn to Program: The Fundamentals -- University of Toronto", "dates": "December 2025" },
+    { "name": "Data Science Bootcamp -- Udemy", "dates": "August 2022" }
+  ]
+}

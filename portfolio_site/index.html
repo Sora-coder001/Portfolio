@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourabh Salunke — Portfolio</title>
+<meta name="description" content="Business Analyst portfolio — experience, projects, and skills.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">SS</div>
+    <div class="links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#leadership">Leadership</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 id="name">Loading…</h1>
+    <div class="role" id="role"></div>
+    <div class="contact" id="contact"></div>
+    <p class="summary" id="summary"></p>
+    <div class="skills-row" id="skills"></div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional Experience</h2>
+    <div id="experience-list"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div id="projects-list"></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div id="education-list"></div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <h2>Leadership &amp; Affiliations</h2>
+    <div id="leadership-list"></div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <h2>Certifications</h2>
+    <div id="certifications-list"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Built and kept up to date by Sourabh Salunke.</div>
+</footer>
+
+<script>
+function esc(s) {
+  return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+fetch('content.json?v=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    // Hero
+    document.getElementById('name').textContent = data.profile.name;
+    document.title = data.profile.name + ' — Portfolio';
+    document.getElementById('role').textContent = data.profile.title;
+    document.getElementById('summary').textContent = data.profile.summary;
+
+    const contactEl = document.getElementById('contact');
+    const contactParts = [];
+    if (data.profile.location) contactParts.push(`<span>${esc(data.profile.location)}</span>`);
+    if (data.profile.phone) contactParts.push(`<span>${esc(data.profile.phone)}</span>`);
+    if (data.profile.email) contactParts.push(`<a href="mailto:${esc(data.profile.email)}">${esc(data.profile.email)}</a>`);
+    if (data.profile.linkedin) contactParts.push(`<a href="${esc(data.profile.linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`);
+    contactEl.innerHTML = contactParts.join('');
+
+    const skillsEl = document.getElementById('skills');
+    skillsEl.innerHTML = (data.profile.coreSkills || []).map(s => `<span class="skill-pill">${esc(s)}</span>`).join('');
+
+    // Experience
+    document.getElementById('experience-list').innerHTML = (data.experience || []).map(e => `
+      <div class="entry">
+        <div class="entry-head">
+          <span class="org">${esc(e.company)}</span>
+          <span class="dates">${esc(e.dates)}</span>
+        </div>
+        <div class="role">${esc(e.role)}</div>
+        <div class="loc">${esc(e.location)}</div>
+        <ul>${(e.bullets || []).map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+      </div>
+    `).join('');
+
+    // Projects
+    document.getElementById('projects-list').innerHTML = (data.projects || []).map(p => `
+      <div class="project-card">
+        <div class="entry-head">
+          <span class="org">${esc(p.title)}</span>
+          <span class="dates">${esc(p.dates)}</span>
+        </div>
+        <ul>${(p.bullets || []).map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+        <div class="tag-row">${(p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+      </div>
+    `).join('');
+
+    // Education
+    document.getElementById('education-list').innerHTML = (data.education || []).map(ed => `
+      <div class="entry">
+        <div class="entry-head">
+          <span class="org">${esc(ed.school)}</span>
+          <span class="dates">${esc(ed.dates)}</span>
+        </div>
+        <div class="role">${esc(ed.degree)}</div>
+        <div class="loc">${esc(ed.location)}</div>
+        ${ed.details ? `<div class="details">${esc(ed.details)}</div>` : ''}
+      </div>
+    `).join('');
+
+    // Leadership
+    document.getElementById('leadership-list').innerHTML = (data.leadership || []).map(l => `
+      <div class="entry">
+        <div class="entry-head">
+          <span class="org">${esc(l.org)}</span>
+          <span class="dates">${esc(l.dates)}</span>
+        </div>
+        <div class="role">${esc(l.role)}</div>
+        <div class="loc">${esc(l.location)}</div>
+        <ul>${(l.bullets || []).map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+      </div>
+    `).join('');
+
+    // Certifications
+    document.getElementById('certifications-list').innerHTML = (data.certifications || []).map(c => `
+      <div class="cert-row">
+        <span>${esc(c.name)}</span>
+        <span class="dates">${esc(c.dates)}</span>
+      </div>
+    `).join('');
+  })
+  .catch(err => {
+    document.getElementById('name').textContent = 'Could not load content.json';
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>
